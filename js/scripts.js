@@ -17,20 +17,7 @@ $(document).ready(function() {
 
 
 	$(".nav a").click(function() {
-    	var identifier;
-    	switch ($(this).attr('data-href')) {
-    		case '1': identifier = '.c6';
-    		break;
-    		case '2': identifier = '.c8';
-    		break;
-    		case '3': identifier = '.c10';
-    		break;
-    		case '4': identifier = '.c11';
-    		break;
-    		case '5': identifier = '.c14';
-    		break;
-    		case '6': identifier = '.c15';
-    	}
+    	let identifier = ['.c6', '.c8', '.c10', '.c11', '.c14', '.c15'][$(this).attr('data-href')];
 	    $('html, body').animate({
 	        scrollTop: $(identifier).offset().top - 29
 	    }, 2000);
