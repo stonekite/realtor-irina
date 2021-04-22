@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE">
+	<title></title>
+	<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="img/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+	<div class="popup_overlay" onClick="popup_out();"></div>
+	<div class="popup" id="thx">
+	<fieldset>
+		<div class="popup_close noselect" onClick="popup_out();"><span>&nbsp;</span></div>
+		<div class="popup_h1">Спасибо за оставленную заявку</div>
+		<div class="popup_h2">Наш менеджер свяжется с вами в ближайшее время</div>
+		<div class="btn" onClick="popup_out();">вернуться на сайт</div>
+	</fieldset>
+	</div>
+	<div class="popup" id="callback">
+	<fieldset>
+		<div class="popup_close noselect" onClick="popup_out();"><span>&nbsp;</span></div>
+		<div class="popup_h1">Заказать звонок</div>
+		<div class="popup_h2">
+			<span>Заполните форму заявки</span>, <br>и мы вам обязательно перезвоним
+		</div>
+		<form>
+			<div class="desc">Имя</div>			
+			<label class="name required">
+				<input type="text" name="name" placeholder="Ваше имя">
+			</label><br>
+			<div class="desc">Телефон</div>			
+			<label class="phone required"><input type="text" name="phone" placeholder="Ваш телефон"></label><br>			
+			<div data-name="callback" class="button noselect btn">Заказать звонок</div>
+		</form>
+	</fieldset>
+	</div>
+	<div class="popup" id="request">
+	<fieldset>
+		<div class="popup_close noselect" onClick="popup_out();"><span>&nbsp;</span></div>
+		<div class="popup_h2_topic">
+			<span>Стоимость услуг на выбор:</span>
+				- Комиссия – 2 % <br>
+				- Фиксированная стоимость – 300 000 руб. независимо <br>
+ 				 от суммы сделки<br>
+				- Абонентская плата – 35 000 руб. (ежемесячные платежи) 
+		</div>
+		<div class="popup_h2">
+			<span>Заполните форму заявки</span>, <br>и мы вам обязательно перезвоним
+		</div>
+		<form>
+			<div class="desc">Имя</div>			
+			<label class="name required">
+				<input type="text" name="name" placeholder="Ваше имя">
+			</label><br>
+			<div class="desc">Телефон</div>			
+			<label class="phone required"><input type="text" name="phone" placeholder="Ваш телефон"></label><br>			
+			<div class="desc">E-mail</div>			
+			<label class="email required">
+				<input type="text" name="email" placeholder="Ваш E-mail">
+			</label><br>
+			<div data-name="request" class="button noselect btn">Заказать</div>
+		</form>
+	</fieldset>
+	</div>
+	<div class="popup" id="question">
+		<div class="popup_close noselect" onClick="popup_out();"><span>&nbsp;</span></div>
+		<div class="popup_h1">Задать вопрос</div>
+		<div class="popup_h2">
+			Заполните форму,<br>
+			и&nbsp;мы&nbsp;обязательно свяжемся с&nbsp;вами!
+		</div>
+		<form>
+			<div class="desc">Имя</div>			
+			<label class="name required">
+				<input type="text" name="name" placeholder="Ваше имя">
+			</label><br>
+			<div class="desc">Телефон</div>			
+			<label class="phone required"><input type="text" name="phone" placeholder="Ваш телефон"></label><br>			
+			<div class="desc">E-mail</div>			
+			<label class="email required">
+				<input type="text" name="email" placeholder="Ваш E-mail">
+			</label><br>
+			<div class="desc">Ваш вопрос</div>			
+			<textarea class="ques" name="ques" placeholder="Ваш вопрос"></textarea><br>
+			<div data-name="question" class="button noselect btn">Задать вопрос</div>
+		</form>
+	</div>
+
+	<input type="hidden" name="prefix" class="prefix" value="">
+	<input type="hidden" name="phone_format" class="phone_format" value="one">
+	<input type="hidden" name="referer" value="">
+	<input type="hidden" name="ref_url" value="">
+	<input type="hidden" class="formname" name="formname" value="">
+	<input type="hidden" class="sitename" name="sitename" value="site">
+	<input type="hidden" class="emailsarr" name="emailsarr" value="mokselleweb@yandex.ru|mail@mail.ru">
+	
+
+	<div class="c1">
+		<div class="wrapp">
+			<ul>
+				<li class="nav"><a href="javascript:void(0);" data-href="1">Продажа</a></li>
+				<li class="nav"><a href="javascript:void(0);" data-href="2">Покупка</a></li>
+				<li class="nav"><a href="javascript:void(0);" data-href="3">Услуги</a></li>
+				<li class="nav"><a href="javascript:void(0);" data-href="4">Стоимость</a></li>
+				<li class="nav"><a href="javascript:void(0);" data-href="5">Отзывы</a></li>
+				<li class="nav"><a href="javascript:void(0);" data-href="6">Контакты</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="c2">
+		<div class="wrapp">
+			<div class="phone">+7 (000) 000-00-00 <span onclick="popup('callback')">Заказать звонок</span></div>
+			<div class="h1"><span>Профессиональный<br>риэлтор в Москве</span>Продажа и покупка жилой недвижимости, <br>юридическое сопровождение сделок</div>
+			<div class="name"><span>Дмитрий Ткачев</span>Эксперт по недвижимости </div>
+
+		</div>
+	</div>
+	<div class="c3">
+		<div class="wrapp">
+			<div class="text">Я дорожу своей репутацией, <br>которую зарабатывал годами</div>
+			<ul class="fadein scroll">
+				<li><span>9</span>опыт работы</li>
+				<li><span>100</span>сделок</li>
+				<li><span>2</span>комиссия</li>
+				<li><span>25</span>средняя сумма сделки</li>
+			</ul>
+		</div>
+	</div>
+	<div class="c4">
+		<div class="wrapp">
+			<div class="text">Партнёры и клиенты</div>
+		</div>
+	</div>
+	<div class="c5">
+		<div class="wrapp">
+			<ul>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+		</div>
+	</div>
+	<div class="c6">
+	<div class="wrapp">
+		<div class="topic">Продажа <br>жилой недвижимости</div>
+		<ul>
+			<li>Бесплатная проверка денег в любом банке</li>
+			<li>Продвижение объекта с помощью <br>наработанных инструментов </li>
+			<li>Личные презентации объекта каждому клиенту</li>
+			<li>Подготовка необходимой документации</li>
+			<li>Организация безопасной передачи денег</li>
+			<li>Организация и проведение сделки</li>
+		</ul>
+		<div class="btn noselect" onclick="popup('request')">Оставить заявку</div>
+		<div class="phone">или звоните мне по телефону +7 (000) 000-00-00</div>
+	</div>
+</div>
+<div class="c7">
+	<div class="wrapp">
+			<div class="fielsdset">
+				<fieldset>
+					<legend>Заказать Оценку</legend>
+					<div class="topic">недвижимости</div>
+					<div class="popup_h2">
+						Заполните форму заявки,<br>чтобы получить экспресс-анализ предложений недвижимости бесплатно
+					</div>
+					<form>
+						<div class="desc">Имя</div>						<label class="name required">
+							<input type="text" name="name" placeholder="Ваше имя">
+						</label><br>
+						<div class="desc">Телефон</div>						<label class="phone required"><input type="text" name="phone" placeholder="Ваш телефон"></label><br>						<div class="desc">E-mail</div>						<label class="email required">
+							<input type="text" name="email" placeholder="Ваш E-mail">
+						</label><br>
+						<div data-name="request" class="button noselect btn">Заказать</div>
+					</form>
+				</fieldset>
+		</div>
+	</div>
+</div>
+<div class="c8">
+	<div class="wrapp">
+		<div class="topic">Покупка <br>жилой недвижимости</div>
+		<ul>
+			<li>Глубокий анализ рынка</li>
+			<li>Подбор наиболее интересных вариантов <br>в короткие сроки</li>
+			<li>Проверка юридической чистоты объекта</li>
+			<li>Переговоры с продавцом</li>
+			<li>Помощь в сборе и оформлении документов</li>
+			<li>Информационная и психологическая <br>поддержка клиента</li>
+			<li>Организация и проведение сделки</li>
+		</ul>
+		<div class="btn noselect" onclick="popup('request')">Оставить заявку</div>
+		<div class="phone">или звоните мне по телефону +7 (000) 000-00-00</div>
+	</div>
+</div>
+<div class="c9">
+	<div class="wrapp">
+			<div class="fielsdset">
+				<fieldset>
+					<legend>Заказать поиск</legend>
+					<div class="topic">предложений</div>
+					<div class="popup_h2">
+						Заполните форму заявки,<br>чтобы получить экспресс-анализ предложений недвижимости бесплатно
+					</div>
+					<form>
+						<div class="desc">Имя</div>						<label class="name required">
+							<input type="text" name="name" placeholder="Ваше имя">
+						</label><br>
+						<div class="desc">Телефон</div>						<label class="phone required"><input type="text" name="phone" placeholder="Ваш телефон"></label><br>						<div class="desc">E-mail</div>						<label class="email required">
+							<input type="text" name="email" placeholder="Ваш E-mail">
+						</label><br>
+						<div data-name="request" class="button noselect btn">Заказать</div>
+					</form>
+				</fieldset>
+		</div>
+	</div>
+</div>	<div class="c10">
+		<div class="wrapp">
+			<div class="topic">Оптимальное решение <br>в любой ситуации</div>
+			<ul class="top">
+				<li class="fadeins scroll">
+					<span>Юридическое <br>сопровождение</span>
+				</li>
+				<li class="fadeins scroll">
+					<span>Оценка объектов <br>недвижимости</span>
+				</li>
+				<li class="fadeins scroll">
+					<span>Подготовка договоров <br>и государственная <br>регистрация сделок</span>
+				</li>
+			</ul>
+			<ul class="bottom">
+				<li class="fadeins scroll">
+					<span>Ипотечное <br>кредитование</span>
+				</li>
+				<li class="fadeins scroll">
+					<span>Профессиональные <br>консультации </span>
+				</li>
+				<li class="fadeins scroll">
+					<span>Проверка <br>и пересчёт денег</span>
+				</li>
+			</ul>
+			<div class="btn noselect" onclick="popup('request')">Получить услуги персонального риэлтора</div>
+		</div>
+	</div>
+	<div class="c11">
+		<div class="wrapp">
+			<div class="topic">Чем я отличаюсь<br>от других риэлторов?</div>
+			<div class="content_left">
+				<div class="text">
+					<span>Выгодная комиссия</span>
+					<ul>
+						<li>
+							Стоимость моих услуг оптимальна, <br>
+							так как у меня нет затрат на большой офис <br>
+							и многочисленный штат сотрудников
+						</li>
+						<li>
+							Разные варианты оплаты: <br>
+							комиссия, фиксированная <br>
+							стоимость услуг, ежемесячная оплата</li>
+						<li>
+							Оплата работы только за положительный <br>
+							результат!
+						</li>
+					</ul>
+					<div class="btn noselect" onclick="popup('callback')">Узнать подробности</div>
+				</div>
+				<div class="text">
+					<span>Эффективная реклама</span>
+					<ul>
+						<li>
+							Вы получаете эффективную рекламу <br>
+							вашего объекта
+						</li>
+						<li>
+							При продаже используется только <br>
+							платная и премиальная реклама, <br>
+							которая оплачивается мной
+						</li>
+						<li>
+							Я могу помочь совершить сделку <br>
+							в сжатые сроки благодаря <br>
+							наработанным инструментам <br>
+							и собственной клиентской базе
+						</li>
+					</ul>
+					<div class="btn noselect" onclick="popup('callback')">Узнать подробности</div>
+				</div>
+			</div>
+			<div class="content_right">
+				<div class="text">
+					<span>Индивидуальный подход</span>
+					<ul>
+						<li>
+							Я концентрируюсь на индивидуальном <br>
+							подходе и качестве продажи, поэтому <br>
+							работаю быстро, и эффективно
+						</li>
+						<li>
+							Процесс продажи выстраивается таким <br>
+							образом, чтобы максимально <br>
+							экономить Ваше время
+						</li>
+						<li>
+							Для вашего удобства и результативных <br>
+							продаж, я работаю и поздно вечером, <br>
+							и по выходным, так как мой график работы <br>
+							ничем не ограничен
+						</li>
+					</ul>
+					<div class="btn noselect" onclick="popup('callback')">Узнать подробности</div>
+				</div>
+				<div class="text">
+					<span>
+						Гарантии надёжности, <br>
+						безопасности <br>
+						и защиты интересов
+					</span>
+					Вы получаете гарантии:
+					<ul>
+						<li>
+							Сроков и результата
+						</li>
+						<li>
+							Юридической чистоты
+						</li>
+						<li>
+							Сопровождения и помощи на каждом <br>
+							этапе сделки
+						</li>
+						<li>
+							Получения полного пакета документов <br>
+							после сделки
+						</li>
+						<li>
+							Бесплатной проверки и пересчёта денег <br>
+							в любом банке
+						</li>
+
+					</ul>
+					<div class="btn noselect" onclick="popup('callback')">Узнать подробности</div>
+				</div>
+			</div>	
+		</div>
+	</div>
+	<div class="c12">
+	<div class="wrapp">
+		<div class="topic">Почему лучше доверить сделки с недвижимостью<br>профессиональному риэлтору?</div>
+		<div class="nav">
+			<div class="sell sell_buy active">Продать жилье</div>
+			<div class="buy sell_buy">Купить жильё</div>
+		</div>
+		<div class="content_sell active">
+			<div class="topic_left">Стандартная схема действий <br>при продаже/покупке</div>
+			<div class="topic_right">Что я предлагаю <br>клиентам</div>
+
+			<div class="shema">
+				<span class="shema_sell">Что<br>делать?</span>
+				<span class="shema_sell">Размещаете<br>рекламу</span>
+				<span class="shema_sell">Получаете круглосуточно<br>множество звонков<br>от риелторов с вопросами</span>
+				<span class="shema_sell">Напряженность, <br>нервозность, <br>раздражительность</span>
+				<span class="shema_sell">Договариваетесь<br>на просмотры</span>
+				<span class="shema_sell">Размещаете рекламу <br>в других источниках</span>
+				<span class="shema_sell">Удаляете объявление<br>о рекламе</span>
+				<span class="shema_sell">Клиенты приезжают<br>и смотрят</span>
+				<span class="shema_sell">Клиенты пропадают<br>без предупреждения и звонка</span>
+				<span class="shema_sell">Необходимо <br>составить и подписать <br>договор аванса</span>
+				<span class="shema_sell">Прекращается регулярный<br>поток клиентов, так как<br>реклама требует обновления</span>
+				<span class="shema_sell">Предположим, что <br>случайно появляется<br>покупатель</span>
+				<span class="shema_sell">Необходимо собрать<br>все документы к сделке</span>
+				<span class="shema_sell">Приезжаете <br>на сделку в банк</span>
+				<span class="shema_sell">Согласовываете <br>договор купли- <br>продажи</span>
+				<span class="shema_sell">Выбрать банк, <br>удовлетворяющий<br>все стороны сделки</span>
+				<span class="shema_sell">Проверяете еще раз <br>все документы</span>
+				<span class="shema_sell">Проверяете правильность<br>данных доступа в ячейку<br>(иначе без покупателя доступа <br>к деньгам у вас не будет)</span>
+				<span class="shema_sell">Сдаёте документы<br>на государственную<br>регистрацию</span>
+				<span class="shema_sell">Подписываете Акт<br>приёма-передачи<br>объекта недвижимого<br>имущества</span>
+				<span class="shema_sell">Забираете<br>деньги<br>из ячейки</span>
+				<span class="shema_sell">Получаете<br>готовые <br>документы</span>
+				<span class="shema_sell">Возможно, понадобится<br>довести дополнительные <br>документы, что займёт<br>много времени</span>
+				<span class="shema_sell">Приостановка <br>регистрации</span>
+			</div>
+			<div class="proposal">
+				<div class="step1">
+					Заявка<br>на продажу
+					<div class="btn noselect" onclick="popup('request')">Оставить заявку</div>
+				</div>
+				<div class="step2">
+					Вы занимаетесь <br>
+					своими делами <br>
+					в то время, как я <br>
+					выполняю все этапы<br>
+					сделки под ключ
+				</div>
+				<div class="step3">
+					Вы приходите <br>
+					на сделку <br>
+					и забираете <br>
+					деньги из ячейки
+				</div>
+			</div>
+		</div>
+		<div class="content_buy">
+			<div class="topic_left">Если вы решили самостоятельно <br>заниматься покупкой</div>
+			<div class="topic_right">Что я предлагаю <br>клиентам</div>
+
+			<div class="shema">
+				<div class="shema_buy">Что<br>делать?</div>
+				<div class="shema_buy">Поиски <br>вариантов <br>в рекламе</div>
+				<div class="shema_buy">Обзвон выбранных <br>вариантов</div>
+				<div class="shema_buy">Понимаете, <br>что 80% информации – <br>это мусор</div>
+				<div class="shema_buy">Просмотр выбранных <br>объектов</div>
+				<div class="shema_buy">Договариваетесь <br>на просмотры</div>
+				<div class="shema_buy">Некоторые варианты смотрите неделями <br>из-за некорректности собственников</div>
+				<div class="shema_buy">На этом этапе квартира <br>может стать неинтересной</div>
+				<div class="shema_buy">Переговоры по цене<br>Цикл может длиться <br>от недели до месяцев</div>
+				<div class="shema_buy">Предположим, вы <br>достигли договорённости <br>о цене</div>
+				<div class="shema_buy">Проверка документов</div>
+				<div class="shema_buy">Проводите глубокую <br>проверку юридической <br>чистоты квартиры</div>
+				<div class="shema_buy">Согласовываете <br>и подписываете<br>договор аванса <br>или задатка</div>
+				<div class="shema_buy">Нужно внести <br>аванс за квартиру</div>
+				<div class="shema_buy">Согласовываете <br>схему сделки</div>
+				<div class="shema_buy">Выбираете место сделки </div>
+				<div class="shema_buy">Согласовываете договор <br>купли-продажи</div>
+				<div class="shema_buy">Подписываете договор <br>купли-продажи, <br>ещё раз проверив его</div>
+				<div class="shema_buy">Подготовить деньги <br>и доставить их <br>на место сделки</div>
+				<div class="shema_buy">Контролируете правильность <br>заполнения условий доступа <br>продавца к деньгам</div>
+				<div class="shema_buy">Проверить комплектность <br>документов перед <br>регистрацией</div>
+				<div class="shema_buy">Подаёте документы <br>на регистрацию </div>
+				<div class="shema_buy">Получаете готовые <br>документы </div>
+			</div>
+			<div class="proposal">
+				<div class="step1">
+					Заявка<br>на покупку
+					<div class="btn noselect" onclick="popup('request')">Оставить заявку</div>
+				</div>
+				<div class="step2">
+					Вы занимаетесь <br>
+					своими делами <br>
+					в то время, как я <br>
+					выполняю все этапы<br>
+					сделки под ключ
+				</div>
+				<div class="step3">
+					Вы получаете <br>
+					документы <br>
+					и ключи <br>
+					от квартиры
+				</div>
+			</div>
+		</div>
+	</div>
+</div>	<div class="c13">
+		<div class="wrapp">
+			<div class="topic">Более 100 успешных сделок в Москве</div>
+			<div class="deal scroll">
+				<div class="black"><span>Русаковская, 31<br>ЖК Дом в Сокольниках</span></div>
+			</div>
+			<div class="deal scroll">
+				<div class="black"><span>Мосфильмовская, д. 8 <br>ЖК Дом <br>на Мосфильмовской</span></div>
+			</div>
+			<div class="deal scroll">
+				<div class="black"><span>Проспект<br>маршала Жукова, 78 <br>ЖК Континенталь</span></div>
+			</div>
+			<div class="deal scroll">
+				<div class="black"><span>Ленинградский <br>проспект, 76 <br>ЖК Соколиное гнездо</span></div>
+			</div>
+			<div class="deal scroll">
+				<div class="black"><span>ул. Шаболовка, 21 <br>ЖК Созвездие капитал</span></div>
+			</div>
+			<div class="deal scroll">
+				<div class="black"><span>Остоженка, 27</span></div>
+			</div>
+			<div class="deal scroll">
+				<div class="black"><span>Измайловский <br>бульвар, 55</span></div>
+			</div>
+			<div class="deal scroll">
+				<div class="black"><span>Большой Сухаревский <br>переулок, д.11</span></div>
+			</div>
+			<div class="deal scroll">
+				<div class="black"><span>Маршала Катукова, 24 <br>ЖК Янтарный город</span></div>
+			</div>
+			<div class="deal scroll">
+				<div class="black"><span>Преображенская <br>площадь, 6</span></div>
+			</div>
+			<div class="deal scroll">
+				<div class="black"><span>Малая Бронная, 44 <br>ЖК Патриарх</span></div>
+			</div>
+			<div class="deal scroll">
+				<div class="black"><span>Раменки, <br>д. 20</span></div>
+			</div>
+		</div>
+	</div>
+	<div class="c14">
+		<div class="wrapp">
+			<div class="topic">Отзывы</div>
+			<div class="content_left">
+				<div class="people">
+					<div class="photo"></div>
+					<div class="name">Николаев Вячеслав</div>
+					<div class="prof">
+						Директор по маркетингу <br>
+						ОАО «Мобильные <br>
+						ТелеСистемы» (МТС)
+					</div>
+				</div>
+				<div class="people">
+					<div class="photo"></div>
+					<div class="name">Моисеев Олег</div>
+					<div class="prof">
+						Генеральный директор <br>
+						«РоторХаус»
+					</div>
+				</div>
+				<div class="people">
+					<div class="photo"></div>
+					<div class="name">Максимов Максим</div>
+					<div class="prof">						
+						Профессор Первого<br>
+						Московского <br>
+						Государственного<br>
+						Медицинского университета<br>
+					</div>
+				</div>
+				<div class="people">
+					<div class="photo"></div>
+					<div class="name">Василевская Ирина</div>
+					
+				</div>
+				<div class="people">
+					<div class="name">Колесникова Елена</div>
+					<div class="prof">						
+						Начальник Управления<br>
+						финансовых институтов<br>
+						и внешних заимствований<br>
+						КБ «РМБ» ЗАО
+					</div>
+				</div>
+				<div class="people">
+					<div class="name">Морозов Сергей</div>
+					<div class="prof">						
+						Генеральный директор <br>
+						реставрационной компании<br>
+						«Атика»
+					</div>
+				</div>
+
+			</div>
+			<div class="content_right"> 
+				<div class="comment">
+					<div class="topic_comment">«Я получил квартиру мечты!»</div>
+					<div class="text_comment">
+						Работа с  Дмитрием всегда вызывала у меня ощущения исключительности <br>
+						и необыкновенного комфорта. В нашей суматошной и прагматичной жизни крайне редко <br>
+						случаются ситуации, когда ты уверен в партнёре по бизнесу. После многих лет <br>
+						сотрудничества я могу сказать, что в Дмитрии я уверен, причём полностью и безоговорочно. <br>
+						Дело здесь не в том, что он всегда делает то, что обещает, и даже не в том, <br>
+						что он настоящий профессионал своего дела. Самое ценное его качество — <br>
+						глубокая порядочность и честность, полная прозрачность во взаимоотношениях. <br>
+						Так что я могу смело рекомендовать Дмитрия… но с одной оговоркой. <br>
+						Когда мне вновь потребуются услуги риэлтора, я претендую на место в начале очереди <br>
+						нетерпеливых клиентов!
+					</div>
+				</div>
+				<div class="comment">
+					<div class="topic_comment">«Добился соглашения о подходящей мне цене»</div>
+					<div class="text_comment"> 
+						Поддерживаем отношения с риэлтором на протяжении 7 лет. <br>
+						За годы знакомства поручал ему продажу нескольких квартир, <br>
+						оформление документов. При покупке последней квартиры возникли трудности <br>
+						с агентами по продаже, которые были решены благодаря ответственной <br>
+						работе риэлтора, вследствие чего я получил квартиру мечты. <br>
+					</div>
+				</div>
+				<div class="comment">
+					<div class="topic_comment">«Доверяем Дмитрию и полагаемся на его опыт»</div>
+					<div class="text_comment"> 
+						Дмитрия мне порекомендовали знакомые. Меня интересовала продажа квартиры <br>
+						и покупка новой. На протяжении всей сделки риэлтор оказывал помощь <br>
+						в консультациях, оформлении документов. <br>
+						Теперь если мне или знакомым нужен риэлтор — обращаемся только к Дмитрию, <br>
+						всегда полностью доверяя и полагаясь на его профессионализм и опыт. <br>
+	 				</div>
+				</div>
+				<div class="comment">
+					<div class="topic_comment">«Диму уже смело можно называть нашим <br>семейным риэлтором»</div>
+					<div class="text_comment">
+						С учётом того, что с Дмитрием нас свела судьба много лет назад, когда мой будущий <br>
+						муж покупал нашу первую будущую квартиру, то Диму уже смело можно называть <br>
+						нашим семейным риэлтором. <br><br>
+						Я очень благодарна Дмитрию за его очень щепетильный и исключительный подход <br>
+						к каждой задаче, проблеме, человеку и всегда с радостью рекомендую <br>
+						его всем друзьям и знакомым. <br>
+					</div>
+				</div>
+				<div class="comment">
+					<div class="topic_comment">«Дмитрий подготовил запасной план действий, <br>и сделка осуществилась точно в срок»</div>
+					<div class="text_comment"> 
+						К риэлтору Дмитрию Ткачеву обратилась по рекомендации друзей, когда нужно было <br>
+						продать однокомнатную и двухкомнатную квартиры и найти для покупки трёхкомнатную <br>
+						квартиру в строго определённом районе Москвы. <br>
+						В процессе продажи одной из квартир сделка могла сорваться из-за отказа покупателей, <br>
+						но Дмитрий подготовил запасной план действий, и сделка осуществилась точно в срок. <br><br>					 
+						В целом, могу порекомендовать Дмитрия как добросовестного, исполнительного, <br>
+						инициативного и опытного риэлтора; воспитанного и доброжелательного человека, <br>
+						с которым приятно иметь дело. <br>
+					</div>
+				</div>
+				<div class="comment">
+					<div class="topic_comment">«С поставленной задачей Дмитрий <br>справился на отлично!»</div>
+					<div class="text_comment">
+						Мы с женой обратились к риэлтору, которого рекомендовали наши друзья, уже дважды <br>
+						пользовавшиеся его услугами – Ткачеву Дмитрию Евгеньевичу. Задача была непростая – <br>
+						продать квартиру, находящуюся в собственности двух человек, почти не общавшихся <br>
+						между собой. С поставленной задачей Дмитрий справился на отлично, проявив <br>
+						в процессе работу не только высокие профессиональные, но и дипломатические навыки. <br>
+						Поэтому теперь, если знакомые спрашивают, нет ли у меня на примете хорошего <br>
+						риэлтора, с уверенностью отвечаю – «Есть!» и даю телефон Дмитрия. 
+					</div>
+				</div>
+				<div class="btn noselect" onclick="popup('callback')">Получить услуги персонального риэлтора</div>
+			</div>
+		</div>
+	</div>
+	<div class="c15">
+		<div class="wrapp">
+			<div class="topic">Остались вопросы?</div>
+			<div class="text_btn" onclick="popup('question')">задайте мне вопрос</div>
+		</div>
+	</div>
+	<div class="c16">
+	<script type="text/javascript" charset="utf-8" src="http://api-maps.yandex.ru/services/constructor/1.0/js/?sid=7tIQbZ0AfBkeAB3sb2RjXt8r_I9LXcP7&amp;width=100%&amp;height=340"></script>
+		<div class="address">
+				<div class="topic">Контакты</div>
+				<div class="text_address">Москва, ул. Московская, 3, стр 1</div>
+		</div>
+	</div>
+	<div class="c17">
+		<div class="wrapp">
+			<div class="phone">
+				+7 (000) 000-00-00
+				<div class="btn" onclick="popup('callback')">Заказать звонок</div>
+			</div>
+			<div class="mokselle">
+				<span class="conf">политика конфиденциальности</span>
+				<div class="logo"><a href="https://ae6.ru/" target="_blank"></a></div>
+				<span class="development">Разработка сайта</span>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="js/plugins.js"></script>
+</body>
+</html>
