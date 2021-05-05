@@ -58,6 +58,11 @@ $(document).ready(function() {
 		}
 	  ]
 	});
+
+	$(".c20").on("click", ".wrap .content .question .text", function() {
+		$(this).closest(".question").find(".answer").toggleClass("invisible");
+	});
+
 	$(".sell_buy").click(function() {
 		$(".sell_buy").removeClass('active');
 		$(this).addClass('active');
