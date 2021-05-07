@@ -5,62 +5,66 @@ var phone_format;
 
 $(document).ready(function() {
 	timer();
-	new Glider(document.querySelector('.glider'), {
-	  // `auto` allows automatic responsive
-	  // width calculations
-	  slidesToShow: 1,
-	  slidesToScroll: 1,
+	let gliders = document.querySelectorAll('.glider');
+	for (let i = 0; i < gliders.length; i++) {
+		let glider = gliders[i];
+		new Glider(glider, {
+		  // `auto` allows automatic responsive
+		  // width calculations
+		  slidesToShow: 1,
+		  slidesToScroll: 1,
 
-	  // speed aggravator - higher is slower
-	  duration: .5,
+		  // speed aggravator - higher is slower
+		  duration: .5,
 
-	  // dot container element or selector
-	  dots: '.dots',
+		  // dot container element or selector
+		  dots: glider.closest('.wrap').querySelector('.dots'),
 
-	  // arrow container elements or selector
-	  arrows: {
-		prev: '.glider-prev',
-		next: '.glider-next'
-	  },
+		  // arrow container elements or selector
+		  arrows: {
+			prev: glider.closest('.wrap').querySelector('.glider-prev'),
+			next: glider.closest('.wrap').querySelector('.glider-next')
+		  },
 
-	  // allow mouse dragging
-	  draggable: true,
-	  // how much to scroll with each mouse delta
-	  dragVelocity: 3.3,
+		  // allow mouse dragging
+		  draggable: true,
+		  // how much to scroll with each mouse delta
+		  dragVelocity: 3.3,
 
-	  // use any custom easing function
-	  // compatible with most easing plugins
-	  easing: function (x, t, b, c, d) {
-		return c*(t/=d)*t + b;
-	  },
+		  // use any custom easing function
+		  // compatible with most easing plugins
+		  easing: function (x, t, b, c, d) {
+			return c*(t/=d)*t + b;
+		  },
 
-	  // event control
-	  scrollPropagate: false,
-	  eventPropagate: true,
+		  // event control
+		  scrollPropagate: false,
+		  eventPropagate: true,
 
-	  // Force centering slide after scroll event
-	  scrollLock: false,
-	  // how long to wait after scroll event before locking
-	  // if too low, it might interrupt normal scrolling
-	  scrollLockDelay: 150,
+		  // Force centering slide after scroll event
+		  scrollLock: false,
+		  // how long to wait after scroll event before locking
+		  // if too low, it might interrupt normal scrolling
+		  scrollLockDelay: 150,
 
-	  // Force centering slide after resize event
-	  resizeLock: true,
+		  // Force centering slide after resize event
+		  resizeLock: true,
 
-	  // Glider.js breakpoints are mobile-first
-	  responsive: [
-		{
-		  breakpoint: 1600,
-		  settings: {
-			slidesToShow: 2,
-			slidesToScroll: 2
-		  }
-		}
-	  ]
-	});
+		  // Glider.js breakpoints are mobile-first
+		  responsive: [
+			{
+			  breakpoint: 1600,
+			  settings: {
+				slidesToShow: 2,
+				slidesToScroll: 2
+			  }
+			}
+		  ]
+		});
+	}
 
 	$(".c20").on("click", ".wrap .content .question .text", function() {
-		$(this).closest(".question").find(".answer").toggleClass("invisible");
+		$(this).closest(".question").toggleClass("closed");
 	});
 
 	$(".sell_buy").click(function() {
