@@ -7,7 +7,7 @@
 	<title></title>
 	<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
 	<link rel="icon" href="img/favicon.ico" type="image/x-icon">
-	<link rel="stylesheet" href="css/style.css?v=6" />
+	<link rel="stylesheet" href="css/style.css?v=7" />
 	<!--<link rel="stylesheet" href="css/animation.css?v=1" />-->
 	<link rel="stylesheet" href="glider/glider.min.css?v=1" />
 </head>
@@ -42,13 +42,6 @@
 	<div class="popup" id="request">
 	<fieldset>
 		<div class="popup_close noselect" onClick="popup_out();"><span>&nbsp;</span></div>
-		<div class="popup_h2_topic">
-			<span>Стоимость услуг на выбор:</span>
-				- Комиссия – 2 % <br>
-				- Фиксированная стоимость – 300 000 руб. независимо <br>
- 				 от суммы сделки<br>
-				- Абонентская плата – 35 000 руб. (ежемесячные платежи)
-		</div>
 		<div class="popup_h2">
 			<span>Заполните форму заявки</span>, <br>и мы вам обязательно перезвоним
 		</div>
@@ -101,7 +94,7 @@
 
 	<div class="c2">
 		<div class="wrap">
-			<div class="phone">+7 (000) 000-00-00 <span onclick="popup('callback')">Заказать звонок</span></div>
+			<div class="phone"><a href="tel:+79111763070">+7 (911) 176-30-70</a> <span onclick="popup('callback')">Заказать звонок</span></div>
 			<div class="h1"><span>Профессиональный<br>риэлтор в Петербурге</span>Помощь при покупке и продаже жилой недвижимости, юридическое сопровождение сделок</div>
 			<div class="name"><span>Ирина Королёва</span>Специалист по недвижимости </div>
 
@@ -125,13 +118,16 @@
 					Связаться
 				</div>
 				<div class="links">
-					<a href="#">
+					<a href="tel:+79111763070">
+						<img src="img/c18/ph.png" alt="Call" />
+					</a>
+					<a href="https://t.me/irina_koroleva_realtor">
 						<img src="img/c18/tg.png" alt="Telegram" />
 					</a>
-					<a href="#">
+					<a href="https://wa.me/79111763070">
 						<img src="img/c18/wa.png" alt="WhatsApp" />
 					</a>
-					<a href="#">
+					<a href="https://instagram.com/irina_koroleva_realtor">
 						<img src="img/c18/ig.png" alt="Instagram" />
 					</a>
 				</div>
@@ -157,9 +153,8 @@
 	<div class="wrap">
 			<div class="fieldset">
 				<fieldset>
-					<legend>Заказать оценку</legend>
 					<div class="popup_h2">
-						Получите экспресс-анализ предложений недвижимости бесплатно
+						Для получения бесплатной консультации по продаже заполните форму
 					</div>
 					<form>
 						<div class="desc">Имя</div>						<label class="name required">
@@ -168,7 +163,7 @@
 						<div class="desc">Телефон</div>						<label class="phone required"><input type="text" name="phone" placeholder="Ваш телефон"></label><br>						<div class="desc">E-mail</div>						<label class="email required">
 							<input type="text" name="email" placeholder="Ваш E-mail">
 						</label><br>
-						<div data-name="request" class="button noselect btn">Заказать</div>
+						<div data-name="request" class="button noselect btn">Отправить</div>
 					</form>
 				</fieldset>
 		</div>
@@ -184,7 +179,7 @@
 			<li>Проверка юридической чистоты объекта</li>
 			<li>Переговоры с продавцом</li>
 			<li>Помощь в сборе и оформлении документов</li>
-			<li>Информационная и психологическая поддержка клиента</li>
+			<li>Информационная и психологическая поддержка</li>
 			<li>Организация и проведение сделки под ключ</li>
 			<li>Помощь в подборе ипотеки</li>
 		</ul>
@@ -194,9 +189,8 @@
 	<div class="wrap">
 			<div class="fieldset">
 				<fieldset>
-					<legend>Заказать поиск</legend>
 					<div class="popup_h2">
-						Получите экспресс-анализ предложений недвижимости бесплатно
+						Для получения бесплатной консультации по покупке заполните форму
 					</div>
 					<form>
 						<div class="desc">Имя</div>						<label class="name required">
@@ -205,7 +199,7 @@
 						<div class="desc">Телефон</div>						<label class="phone required"><input type="text" name="phone" placeholder="Ваш телефон"></label><br>						<div class="desc">E-mail</div>						<label class="email required">
 							<input type="text" name="email" placeholder="Ваш E-mail">
 						</label><br>
-						<div data-name="request" class="button noselect btn">Заказать</div>
+						<div data-name="request" class="button noselect btn">Отправить</div>
 					</form>
 				</fieldset>
 		</div>
@@ -424,75 +418,43 @@
 					<div>Сделка под ключ</div>
 				</div>
 			</div>
-			<div class="btn noselect" onclick="popup('request')">Получить услуги персонального риэлтора</div>
+			<div class="btn noselect" onclick="popup('request')">Получить персональную консультацию бесплатно</div>
 		</div>
 	</div>
 	<div class="c11">
 		<div class="wrap">
-			<div class="topic">Чем я отличаюсь<br>от других риэлторов?</div>
+			<div class="topic">Преимущества работы со мной</div>
 			<div class="content">
 				<div class="text">
-					<div class="title">Выгодная комиссия</div>
+					<div class="title">Защита ваших интересов</div>
 					<ul>
 						<li>
-							Стоимость моих услуг оптимальна, <br>
-							так как у меня нет затрат на большой офис <br>
-							и многочисленный штат сотрудников
+							Благодаря большому опыту и системному подходу в работе, я могу своевременно предупредить обо всех рисках
 						</li>
 						<li>
-							Разные варианты оплаты: <br>
-							комиссия, фиксированная <br>
-							стоимость услуг, ежемесячная оплата
+							Система и документооборот, с которыми я работаю будут для вас максимально прозрачными, понятными и безопасными
+						</li>
+						<li>
+							Мои знания и подход помогут вам купить или продать объект недвижимости на самых выгодных для вас условиях
 						</li>
 					</ul>
-					<div class="btn noselect" onclick="popup('callback')">Узнать подробности</div>
-				</div>
-				<div class="text">
-					<div class="title">Эффективная реклама</div>
-					<ul>
-						<li>
-							Вы получаете эффективную рекламу <br>
-							вашего объекта
-						</li>
-						<li>
-							При продаже используется только <br>
-							платная и премиальная реклама, <br>
-							которая оплачивается мной
-						</li>
-					</ul>
-					<div class="btn noselect" onclick="popup('callback')">Узнать подробности</div>
+					<div class="btn noselect" onclick="popup('callback')">Подробнее</div>
 				</div>
 				<div class="break"></div>
 				<div class="text">
-					<div class="title">Выгодная комиссия</div>
+					<div class="title">Не трачу ваше время на лишние шаги</div>
 					<ul>
 						<li>
-							Стоимость моих услуг оптимальна, <br>
-							так как у меня нет затрат на большой офис <br>
-							и многочисленный штат сотрудников
+							Процесс продажи и покупки объекта недвижимости выстраивается таким  образом, чтобы максимально экономить ваше время
 						</li>
 						<li>
-							Разные варианты оплаты: <br>
-							комиссия, фиксированная <br>
-							стоимость услуг, ежемесячная оплата
+							Системный подход в моей работе позволяет решать сложные задачи эффективно и быстро
+						</li>
+						<li>
+							Я всегда своевременно сообщаю вам о каких-либо изменениях, поэтому вы можете не переживать, что что-то упустите
 						</li>
 					</ul>
-					<div class="btn noselect" onclick="popup('callback')">Узнать подробности</div>
-				</div>
-				<div class="text">
-					<div class="title">Эффективная реклама</div>
-					<ul>
-						<li>
-							Вы получаете эффективную рекламу <br>
-							вашего объекта
-						</li>
-						<li>
-							При продаже используется только <br>
-							платная и премиальная реклама, <br>
-							которая оплачивается мной
-						</li>
-					</ul>
-					<div class="btn noselect" onclick="popup('callback')">Узнать подробности</div>
+					<div class="btn noselect" onclick="popup('callback')">Подробнее</div>
 				</div>
 			</div>
 		</div>
@@ -620,33 +582,39 @@
 					Связаться
 				</div>
 				<div class="links">
-					<a href="#">
+					<a href="tel:+79111763070">
+						<img src="img/c18/ph.png" alt="Call" />
+					</a>
+					<a href="https://t.me/irina_koroleva_realtor">
 						<img src="img/c18/tg.png" alt="Telegram" />
 					</a>
-					<a href="#">
+					<a href="https://wa.me/79111763070">
 						<img src="img/c18/wa.png" alt="WhatsApp" />
 					</a>
-					<a href="#">
+					<a href="https://instagram.com/irina_koroleva_realtor">
 						<img src="img/c18/ig.png" alt="Instagram" />
 					</a>
 				</div>
 			</div>
 			<div class="group">
 				<div class="title">
-					Подписаться
+					Узнать больше
 				</div>
 				<div class="links">
 					<a href="#">
 						<img src="img/c18/tt.png" alt="TikTok" />
 					</a>
-					<a href="#">
+					<a href="https://zen.yandex.ru/id/607a90f93d51355a0071b5e9">
 						<img src="img/c18/dz.png" alt="Dzen" />
 					</a>
-					<a>
+					<a href="https://vk.com/irina_realty_spb">
 						<img src="img/c18/vk.png" alt="VKontakte" />
 					</a>
-					<a href="#">
+					<a href="https://ok.ru/group/58015528714244">
 						<img src="img/c18/ok.png" alt="Odnoklassniki" />
+					</a>
+					<a href="https://www.advecs.com/agents/13106">
+						<img src="img/c18/ad.png" alt="Advecs" />
 					</a>
 				</div>
 			</div>
