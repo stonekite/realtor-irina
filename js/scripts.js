@@ -67,6 +67,30 @@ $(document).ready(function() {
 		$(this).closest(".question").toggleClass("closed");
 	});
 
+	let $trueformName = $("#trueform input[name='name']");
+	let $trueformPhone = $("#trueform input[name='phone']");
+	let $trueformEmail = $("#trueform input[name='email']");
+	let $trueformBtn = $("#trueform .btn");
+
+	$("body").on("click", "form:not(#trueform) .btn", function() {
+		let $form = $(this).closest("form");
+		let $formName = $form.find("input[name='name']");
+		let $formPhone = $form.find("input[name='phone']");
+		let $formEmail = $form.find("input[name='email']");
+		$trueformName.val($formName.val());
+		$trueformPhone.val($formPhone.val());
+		if ($formEmail.length) {
+		$trueformEmail.val($formEmail.val());
+		}
+		$trueformBtn.trigger("click");
+		$trueformName.val("");
+		$trueformPhone.val("");
+		$trueformEmail.val("");
+		thx();
+		//setTimeout(function(){ga('send', 'event', ''+sbt, ''+sbt);}, 30);
+		//setTimeout(function(){yaCounterXXXXXXXXX.reachGoal(''+sbt);}, 30); // меняем XXXXXXXXX на номер счетчика
+	});
+
 	$(".sell_buy").click(function() {
 		$(".sell_buy").removeClass('active');
 		$(this).addClass('active');
@@ -78,63 +102,6 @@ $(document).ready(function() {
 			$(".content_buy").addClass('active');
 		};
 	});
-
-	var prefix = $('.prefix').val();
-	var url = prefix+"send.php";
-	phone_format = $('.phone_format').val();
-
-	$('.button').click(function() {
-		$('body').find('form:not(this)').children('label').removeClass('red');
-		var request_url = '<br>'+$('input[name="ref_url"]').val().toString().replace(/&/g, '<br>');
-		var answer = checkForm($(this).parent().get(0));
-		if(answer != false)
-		{
-			var $form = $(this).parent();
-			var name = $('input[name="name"]', $form).val();
-			if(phone_format == 'one') {
-				var phone = $('input[name="phone"]', $form).val();
-			} else if(phone_format == 'three') {
-				var phone = $('input[name="phone1"]', $form).val()+' '+$('input[name="phone2"]', $form).val()+' '+$('input[name="phone3"]', $form).val();
-			}
-			var email = $('input[name="email"]', $form).val();
-			var ques = $('textarea[name="ques"]', $form).val();
-			var sbt = $('.button', $form).attr("data-name");
-			var submit = $('.button', $form).text();
-			var ref = $('input[name="referer"]').val();
-			var formname = $('input[name="formname"]').val();
-			var sitename = $('.sitename').val();
-			var emailsarr = $('.emailsarr').val();
-			$.ajax({
-				type: "POST",
-				url: url,
-				dataType: "json",
-				data: "name="+name+"&phone="+phone+"&"+sbt+"="+submit+"&email="+email+"&ques="+ques+"&formname="+formname+"&ref="+ref+"&utm="+request_url+"&sitename="+sitename+"&emailsarr="+emailsarr
-			}).always(function() {
-				thx();
-				//метрики
-				setTimeout(function(){ga('send', 'event', ''+sbt, ''+sbt);}, 30);
-				setTimeout(function(){yaCounterXXXXXXXXX.reachGoal(''+sbt);}, 30); // меняем XXXXXXXXX на номер счетчика
-			});
-		}
-	});
-
-	if(phone_format == 'three') {
-		$('input[name="phone2"]').focus(function() {
-			$(this).keydown(function(event){
-				if(event.keyCode != 8) {
-					if($(this).val().length >= 3 && event.keyCode != 8)
-						$(this).parent().siblings().find('input[name="phone3"]').focus();
-				}
-			});
-		});
-		$('input[name="phone3"]').focus(function() {
-			$(this).keydown(function(event){
-				if(event.keyCode == 8 && $(this).val().length == 0) {
-					$(this).parent().siblings().find('input[name="phone2"]').focus();
-				}
-			});
-		});
-	}
 });
 
 function timer()
@@ -200,88 +167,4 @@ function thx() {
 		});
 	}
 	$('textarea').val('');
-}
-
-function checkForm(form1) {
-
-	var $form = $(form1);
-	var checker = true;
-	var name = $("input[name='name']", $form).val();
-	if(phone_format == 'one') {
-		var phone = $("input[name='phone']", $form).val();
-	} else if(phone_format == 'three') {
-		var phone1 = $("input[name='phone1']", $form).val();
-		var phone2 = $("input[name='phone2']", $form).val();
-		var phone3 = $("input[name='phone3']", $form).val();
-	}
-	var email = $("input[name='email']", $form).val();
-
-	if($form.find(".name").hasClass("required")) {
-		if(!name) {
-			$form.find(".name").addClass("red");
-			checker = false;
-		} else {
-			$form.find(".name").removeClass('red');
-		}
-	}
-
-	if(phone_format == 'one') {
-		if($form.find(".phone").hasClass("required")) {
-			if(!phone) {
-				$form.find(".phone").addClass("red");
-				checker = false;
-			} else if(/[^0-9\+ ()\-]/.test(phone)) {
-				$form.find(".phone").addClass("red");
-				checker = false;
-			} else {
-				$form.find(".phone").removeClass("red");
-			}
-		}
-	} else if(phone_format == 'three') {
-		if($form.find(".phone").hasClass("required")) {
-			if(!phone1) {
-				$form.find(".phone").children('input[name="phone1"]').parent().addClass("red");
-				checker = false;
-			} else if(/[^0-9+]/.test(phone1)) {
-				$form.find(".phone").children('input[name="phone1"]').parent().addClass("red");
-				checker = false;
-			} else {
-				$form.find(".phone").children('input[name="phone1"]').parent().removeClass("red");
-			}
-
-			if(!phone2) {
-				$form.find(".phone").children('input[name="phone2"]').parent().addClass("red");
-				checker = false;
-			} else if(/[^0-9]/.test(phone2)) {
-				$form.find(".phone").children('input[name="phone2"]').parent().addClass("red");
-				checker = false;
-			} else {
-				$form.find(".phone").children('input[name="phone2"]').parent().removeClass("red");
-			}
-
-			if(!phone3) {
-				$form.find(".phone").children('input[name="phone3"]').parent().addClass("red");
-				checker = false;
-			} else if(/[^0-9 -]/.test(phone3) || phone3.length < 4) {
-				$form.find(".phone").children('input[name="phone3"]').parent().addClass("red");
-				checker = false;
-			} else {
-				$form.find(".phone").children('input[name="phone3"]').parent().removeClass("red");
-			}
-		}
-	}
-
-	if($form.find(".email").hasClass("required")) {
-		if(!email) {
-			$form.find(".email").addClass("red");
-			checker = false;
-		} else if(!/^[\.A-z0-9_\-\+]+[@][A-z0-9_\-]+([.][A-z0-9_\-]+)+[A-z]{1,4}$/.test(email)) {
-			$form.find(".email").addClass("red");
-			checker = false;
-		} else {
-			$form.find(".email").removeClass("red");
-		}
-	}
-
-	if(checker != true) { return false; }
 }
