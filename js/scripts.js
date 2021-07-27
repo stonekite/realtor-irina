@@ -69,6 +69,7 @@ $(document).ready(function() {
 	let $trueformName = $("#trueform input[name='name']");
 	let $trueformPhone = $("#trueform input[name='phone']");
 	let $trueformEmail = $("#trueform input[name='email']");
+	let $trueformSubject = $("#trueform input[name='subject']");
 	let $trueformBtn = $("#trueform .btn");
 
 	$("body").on("click", "form:not(#trueform) .btn", function() {
@@ -76,15 +77,18 @@ $(document).ready(function() {
 		let $formName = $form.find("input[name='name']");
 		let $formPhone = $form.find("input[name='phone']");
 		let $formEmail = $form.find("input[name='email']");
+		let $formSubject = $form.find("input[name='subject']");
 		$trueformName.val($formName.val());
 		$trueformPhone.val($formPhone.val());
 		if ($formEmail.length) {
 			$trueformEmail.val($formEmail.val());
 		}
+		$trueformSubject.val($formSubject.val());
 		$trueform.trigger("submit");
 		$trueformName.val("");
 		$trueformPhone.val("");
 		$trueformEmail.val("");
+		$trueformSubject.val("");
 		thx();
 	});
 });
